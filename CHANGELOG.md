@@ -4,3 +4,4 @@
   - remove svelte dependencies
   - remove demo svelte components & public folder
   - upgrade dependency versions
+  - add typescript support

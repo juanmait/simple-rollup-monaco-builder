@@ -2,11 +2,12 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
+import typescript from '@rollup/plugin-typescript';
 
 const production = process.env.NODE_ENV === "production";
 
 export default {
-  input: "src/monaco.js",
+  input: "src/index.ts",
   output: {
     sourcemap: !production,
     /**
@@ -15,15 +16,16 @@ export default {
      * @see https://rollupjs.org/guide/en/#outputformat
      */
     format: "esm",
-    name: "monaco",
+    name: "monaco-editor",
     /**
      * Create single bundle when using dynamic imports
      * @see https://rollupjs.org/guide/en/#outputinlinedynamicimports
      */
     inlineDynamicImports: true,
-    file: "dist/index.js",
+    dir: "monaco-editor",
   },
   plugins: [
+    typescript(),
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In
     // some cases you'll need additional configuration —
@@ -38,6 +40,7 @@ export default {
     commonjs(),
     postcss({
       extract: true,
+      sourceMap: !production,
       minimize: production,
     }),
 

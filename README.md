@@ -16,6 +16,6 @@ yarn build-dev  # build with NODE_ENV=development (minification disabled, source
 {
   "build": "NODE_ENV=production yarn _build",
   "build-dev": "NODE_ENV=development yarn _build",
-  "_build": "rm -rf dist && rollup -c && cp node_modules/monaco-editor/monaco.d.ts dist/index.d.ts"
+  "_build": "rm -rf monaco-editor && rollup -c"
 }
 ```
