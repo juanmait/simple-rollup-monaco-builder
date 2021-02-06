@@ -1,36 +1,36 @@
 // (1) Desired editor features:
-import 'monaco-editor/esm/vs/editor/browser/controller/coreCommands.js';
-import 'monaco-editor/esm/vs/editor/browser/widget/codeEditorWidget.js';
+import "monaco-editor/esm/vs/editor/browser/controller/coreCommands.js";
+import "monaco-editor/esm/vs/editor/browser/widget/codeEditorWidget.js";
 // import 'monaco-editor/esm/vs/editor/browser/widget/diffEditorWidget.js';
 // import 'monaco-editor/esm/vs/editor/browser/widget/diffNavigator.js';
-import 'monaco-editor/esm/vs/editor/contrib/bracketMatching/bracketMatching.js';
+import "monaco-editor/esm/vs/editor/contrib/bracketMatching/bracketMatching.js";
 // import 'monaco-editor/esm/vs/editor/contrib/caretOperations/caretOperations.js';
 // import 'monaco-editor/esm/vs/editor/contrib/caretOperations/transpose.js';
-import 'monaco-editor/esm/vs/editor/contrib/clipboard/clipboard.js';
+import "monaco-editor/esm/vs/editor/contrib/clipboard/clipboard.js";
 // import 'monaco-editor/esm/vs/editor/contrib/codelens/codelensController.js';
 // import 'monaco-editor/esm/vs/editor/contrib/colorPicker/colorDetector.js';
-import 'monaco-editor/esm/vs/editor/contrib/comment/comment.js';
-import 'monaco-editor/esm/vs/editor/contrib/contextmenu/contextmenu.js';
+import "monaco-editor/esm/vs/editor/contrib/comment/comment.js";
+import "monaco-editor/esm/vs/editor/contrib/contextmenu/contextmenu.js";
 // import 'monaco-editor/esm/vs/editor/contrib/cursorUndo/cursorUndo.js';
 // import 'monaco-editor/esm/vs/editor/contrib/dnd/dnd.js';
-import 'monaco-editor/esm/vs/editor/contrib/find/findController.js';
-import 'monaco-editor/esm/vs/editor/contrib/folding/folding.js';
+import "monaco-editor/esm/vs/editor/contrib/find/findController.js";
+import "monaco-editor/esm/vs/editor/contrib/folding/folding.js";
 // import 'monaco-editor/esm/vs/editor/contrib/format/formatActions.js';
 // import 'monaco-editor/esm/vs/editor/contrib/goToDeclaration/goToDeclarationCommands.js';
 // import 'monaco-editor/esm/vs/editor/contrib/goToDeclaration/goToDeclarationMouse.js';
 // import 'monaco-editor/esm/vs/editor/contrib/gotoError/gotoError.js';
-import 'monaco-editor/esm/vs/editor/contrib/hover/hover.js';
+import "monaco-editor/esm/vs/editor/contrib/hover/hover.js";
 // import 'monaco-editor/esm/vs/editor/contrib/inPlaceReplace/inPlaceReplace.js';
 // import 'monaco-editor/esm/vs/editor/contrib/linesOperations/linesOperations.js';
 // import 'monaco-editor/esm/vs/editor/contrib/links/links.js';
-import 'monaco-editor/esm/vs/editor/contrib/multicursor/multicursor.js';
+import "monaco-editor/esm/vs/editor/contrib/multicursor/multicursor.js";
 // import 'monaco-editor/esm/vs/editor/contrib/parameterHints/parameterHints.js';
 // import 'monaco-editor/esm/vs/editor/contrib/quickFix/quickFixCommands.js';
 // import 'monaco-editor/esm/vs/editor/contrib/referenceSearch/referenceSearch.js';
 // import 'monaco-editor/esm/vs/editor/contrib/rename/rename.js';
-import 'monaco-editor/esm/vs/editor/contrib/smartSelect/smartSelect.js';
-import 'monaco-editor/esm/vs/editor/contrib/snippet/snippetController2.js';
-import 'monaco-editor/esm/vs/editor/contrib/suggest/suggestController.js';
+import "monaco-editor/esm/vs/editor/contrib/smartSelect/smartSelect.js";
+import "monaco-editor/esm/vs/editor/contrib/snippet/snippetController2.js";
+import "monaco-editor/esm/vs/editor/contrib/suggest/suggestController.js";
 // import 'monaco-editor/esm/vs/editor/contrib/toggleTabFocusMode/toggleTabFocusMode.js';
 // import 'monaco-editor/esm/vs/editor/contrib/wordHighlighter/wordHighlighter.js';
 // import 'monaco-editor/esm/vs/editor/contrib/wordOperations/wordOperations.js';
@@ -41,7 +41,8 @@ import 'monaco-editor/esm/vs/editor/contrib/suggest/suggestController.js';
 // import 'monaco-editor/esm/vs/editor/standalone/browser/quickOpen/gotoLine.js';
 // import 'monaco-editor/esm/vs/editor/standalone/browser/quickOpen/quickCommand.js';
 // import 'monaco-editor/esm/vs/editor/standalone/browser/toggleHighContrast/toggleHighContrast.js';
-import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
+import * as monaco from "monaco-editor/esm/vs/editor/editor.api.js";
+import type { Environment } from "monaco-editor/esm/vs/editor/editor.api.js";
 
 // (2) Desired languages:
 // import 'monaco-editor/esm/vs/language/typescript/monaco.contribution';
@@ -72,7 +73,7 @@ import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
 // import 'monaco-editor/esm/vs/basic-languages/postiats/postiats.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/powershell/powershell.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/pug/pug.contribution.js';
-import 'monaco-editor/esm/vs/basic-languages/python/python.contribution.js';
+import "monaco-editor/esm/vs/basic-languages/python/python.contribution.js";
 // import 'monaco-editor/esm/vs/basic-languages/r/r.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/razor/razor.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/redis/redis.contribution.js';
@@ -86,30 +87,34 @@ import 'monaco-editor/esm/vs/basic-languages/python/python.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/vb/vb.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/xml/xml.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/yaml/yaml.contribution.js';
-import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution';
-import 'monaco-editor/esm/vs/basic-languages/typescript/typescript.contribution';
+import "monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution";
+import "monaco-editor/esm/vs/basic-languages/typescript/typescript.contribution";
 
-
-
+// @ts-ignore
 self.MonacoEnvironment = {
-	getWorkerUrl: function (moduleId, label) {
+  getWorkerUrl: function (moduleId, label) {
+    console.info("getWorkerUrl label", label);
+    console.info("getWorkerUrl moduleId", moduleId);
+    // if (label === 'json') {
+    // 	return './json.worker.bundle.js';
+    // }
+    // if (label === 'css') {
+    // 	return './css.worker.bundle.js';
+    // }
+    // if (label === 'html') {
+    // 	return './html.worker.bundle.js';
+    // }
+    // if (label === 'typescript' || label === 'javascript') {
+    // 	return './ts.worker.bundle.js';
+    // }
+    return "./editor.worker.bundle.js";
+  },
+};
 
-		console.info('getWorkerUrl label', label)
-		console.info('getWorkerUrl moduleId', moduleId)
-		// if (label === 'json') {
-		// 	return './json.worker.bundle.js';
-		// }
-		// if (label === 'css') {
-		// 	return './css.worker.bundle.js';
-		// }
-		// if (label === 'html') {
-		// 	return './html.worker.bundle.js';
-		// }
-		// if (label === 'typescript' || label === 'javascript') {
-		// 	return './ts.worker.bundle.js';
-		// }
-		return './editor.worker.bundle.js';
-	}
-}
+// reexport some types
+export type MonacoEnvironment = Environment;
+export type EditorApi = typeof monaco.editor;
+export type IStandaloneCodeEditor = ReturnType<EditorApi["create"]>;
+export type DefaultExport = typeof monaco;
 
 export default monaco;
