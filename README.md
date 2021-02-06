@@ -2,7 +2,7 @@
 
 > Forked from [fudgepop01/svelte-monaco-editor-example](https://github.com/fudgepop01/svelte-monaco-editor-example)
 
-Simple rollup config to build a customized esm version of monaco editor.
+Simple rollup config to build a customized esm version of monaco editor. Includes some typescript suport.
 
 ```sh
 yarn install
