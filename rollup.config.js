@@ -1,65 +1,48 @@
-import svelte from 'rollup-plugin-svelte';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import livereload from 'rollup-plugin-livereload';
-import { terser } from 'rollup-plugin-terser';
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import { terser } from "rollup-plugin-terser";
+import postcss from "rollup-plugin-postcss";
 
-import postcss from 'rollup-plugin-postcss';
-
-const production = !process.env.ROLLUP_WATCH;
+const production = process.env.NODE_ENV === "production";
 
 export default {
-	input: 'src/main.js',
-	output: {
-		sourcemap: true,
-		format: 'esm',
-		name: 'app',
-		dir: 'public/',
-	},
-	plugins: [
-		svelte({
-			// enable run-time checks when not in production
-			dev: !production,
-			// we'll extract any component CSS out into
-			// a separate file — better for performance
-			css: css => {
-				css.write('public/bundle.css');
-			},
-			emitCss: true
-		}),
+  input: "src/monaco.js",
+  output: {
+    sourcemap: !production,
+    /**
+     * es – Keep the bundle as an ES module file, suitable for other bundlers
+     * and inclusion as a <script type=module> tag in modern browsers (alias: esm, module).
+     * @see https://rollupjs.org/guide/en/#outputformat
+     */
+    format: "esm",
+    name: "monaco",
+    /**
+     * Create single bundle when using dynamic imports
+     * @see https://rollupjs.org/guide/en/#outputinlinedynamicimports
+     */
+    inlineDynamicImports: true,
+    file: "dist/index.js",
+  },
+  plugins: [
+    // If you have external dependencies installed from
+    // npm, you'll most likely need these plugins. In
+    // some cases you'll need additional configuration —
+    // consult the documentation for details:
+    // https://github.com/rollup/rollup-plugin-commonjs
+    resolve({
+      browser: true,
+      dedupe: (importee) =>
+        importee === "svelte" || importee.startsWith("svelte/"),
+      preferBuiltins: false,
+    }),
+    commonjs(),
+    postcss({
+      extract: true,
+      minimize: production,
+    }),
 
-		// If you have external dependencies installed from
-		// npm, you'll most likely need these plugins. In
-		// some cases you'll need additional configuration —
-		// consult the documentation for details:
-		// https://github.com/rollup/rollup-plugin-commonjs
-		resolve({
-			browser: true,
-			dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/'),
-			preferBuiltins: false
-		}),
-		commonjs(),
-		postcss({
-			extract: true,
-			minimize: true,
-			use: [
-			  ['sass', {
-					includePaths: [
-						'./node_modules'
-					]
-				}]
-			]
-		}),
-
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
-		!production && livereload('public'),
-
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
-		production && terser()
-	],
-	watch: {
-		clearScreen: false
-	}
+    // If we're building for production (npm run build
+    // instead of npm run dev), minify
+    production && terser(),
+  ],
 };

@@ -39,7 +39,7 @@ import 'monaco-editor/esm/vs/editor/contrib/suggest/suggestController.js';
 // import 'monaco-editor/esm/vs/editor/standalone/browser/iPadShowKeyboard/iPadShowKeyboard.js';
 // import 'monaco-editor/esm/vs/editor/standalone/browser/quickOpen/quickOutline.js';
 // import 'monaco-editor/esm/vs/editor/standalone/browser/quickOpen/gotoLine.js';
-import 'monaco-editor/esm/vs/editor/standalone/browser/quickOpen/quickCommand.js';
+// import 'monaco-editor/esm/vs/editor/standalone/browser/quickOpen/quickCommand.js';
 // import 'monaco-editor/esm/vs/editor/standalone/browser/toggleHighContrast/toggleHighContrast.js';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
 
@@ -86,13 +86,16 @@ import 'monaco-editor/esm/vs/basic-languages/python/python.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/vb/vb.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/xml/xml.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/yaml/yaml.contribution.js';
-// import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution';
-// import 'monaco-editor/esm/vs/basic-languages/typescript/typescript.contribution';
+import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution';
+import 'monaco-editor/esm/vs/basic-languages/typescript/typescript.contribution';
 
 
 
 self.MonacoEnvironment = {
 	getWorkerUrl: function (moduleId, label) {
+
+		console.info('getWorkerUrl label', label)
+		console.info('getWorkerUrl moduleId', moduleId)
 		// if (label === 'json') {
 		// 	return './json.worker.bundle.js';
 		// }
