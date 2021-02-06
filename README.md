@@ -1,23 +1,21 @@
-# monaco editor in sveltejs
+# Simple rollup monaco builder
 
-This is an example of how to incorperate monaco editor into a sveltejs 
-project that uses rollup. This technique was shamlessly ripped straight from 
-https://github.com/sveltejs/svelte-repl.
+> Forked from [fudgepop01/svelte-monaco-editor-example](https://github.com/fudgepop01/svelte-monaco-editor-example)
 
+Simple rollup config to build a customized esm version of monaco editor.
 
-Here are the current limitations / things I don't yet know how to fix:
+```sh
+yarn install
+yarn build  # build with NODE_ENV=production (minification enabled, sourcemaps disabled).
+yarn build-dev  # build with NODE_ENV=development (minification disabled, sourcemaps enabled).
+```
 
-- it's an esm export (meaning you'll need to import it using `<script type="module" ...>`)
-- rollup generates a new bundle for monaco and its dependencies
-  every time you want to change the configuration a little.
-- it takes forever for rollup to bundle all the monaco stuff, possibly 
-  due to the `'this' has been replaced by 'undefined'` warnings lol
+### Scripts
 
---- 
-
-anyway, here's how to start it upon cloning the repo:
-
-```cmd
-npm install
-npm run dev
-```  
+```json
+{
+  "build": "NODE_ENV=production yarn _build",
+  "build-dev": "NODE_ENV=development yarn _build",
+  "_build": "rm -rf dist && rollup -c && cp node_modules/monaco-editor/monaco.d.ts dist/index.d.ts"
+}
+```
